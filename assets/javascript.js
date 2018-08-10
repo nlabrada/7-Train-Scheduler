@@ -11,6 +11,17 @@ $(document).ready(function(){
     };
     firebase.initializeApp(config);
 
+    // Onclick function for submit
+    $(button).on("click", function(){
+        var trainName = $("#trainNameInput").val
+        var destination = $("#destinationInput").val
+        var trainTime = $("#firstTrainInput").val
+        var frequency = $("#frequencyInput").val
+    })
+    console.log(trainName);
+    console.log(destination);
+    console.log(trainTime);
+    console.log(frequency);
 
 
 
