@@ -3,16 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <title>Lets Go For a Ride!</title>
-    <!-- Moment JS -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- My CSS -->
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 
 
 </head>
@@ -22,87 +25,59 @@
         <h1> Let's Go For a Ride! </h1>
     </div>
 <!-- Shows Current Train Sched -->
-    <div class="card">
-        <div class="card-header">
-            Current Train Sched
+      <div class="card">
+          <div class="card-header">
+              Current Train Sched 👌🏽😤💯💦🚨
+          </div>
+          <table class="table" id= "train-table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Train Name</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Frequency (min)</th>
+                      <th scope="col">Next Arrival</th>
+                      <th scope="col">Minutes Away</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr> -->
+                      <!-- <th scope="row">Simon and Garfunkel</th>
+                      <td>Homeward Bound</td>
+                      <td>19</td>
+                      <td>02:42</td>
+                      <td>7</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <th scope="row">Last Train to</th>
+                      <td>Clarksville</td>
+                      <td>16</td>
+                      <td>02:46</td>
+                      <td>11</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <th scope="row">Train in Vain</th>
+                      <td>By Me</td>
+                      <td>12</td>
+                      <td>03:09</td>
+                      <td>5</td>
+                    </tr> -->
+                    <!-- <tr>
+                      <th scope="row">Mystery Train</th>
+                      <td>Gone</td>
+                      <td>55</td>
+                      <td>02:24</td>
+                      <td>32</td>
+                    </tr> -->
+
+                  </tbody>
+                </table>
         </div>
-        <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <table class="table">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-        
-
-
-
-
-
-
-
-    </div>
-
 <!-- Form to add train info -->
         <div class="card">
             <div class="card-header">
             Add! That! Train!
             </div>
-            <div class="card-header">
+            <div class="card-header" id="form-group-header">
             <div class="form-group">
                 <label for="inputTrainName">Name! That! Train!</label>
                 <input type="text" class="form-control" id="trainNameInput" placeholder="Train Name">
@@ -113,7 +88,7 @@
             </div>
             <div class="form-group">
                 <label for="inputTrainTime">First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control" id="firstTrainInput" placeholder="Train Time">
+                <input type="text" class="form-control" id="firstTrainInput" placeholder="Time">
             </div>
             <div class="form-group">
                 <label for="inputFrequency">Frequency (min)</label>
@@ -121,7 +96,7 @@
             </div>
         
                     <!-- Submit button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
         </div>
     </div>
 

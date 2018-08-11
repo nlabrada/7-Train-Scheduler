@@ -1,12 +1,30 @@
+body{
+    background-color: #b7e0e3;
+}
 .top-page{
     text-align: center;
-    padding: 20px;
-    background-color: aliceblue;
+    background-color: #fee7ea;
     margin: 20px;
     margin-left: 15%;
     margin-right: 15%;
+    border-style: solid;
+    border-radius: 8px;
+    border-color: #fee7ea;
 }
 .card{
     margin:10px;
-    
+}
+.table{
+    color:#bdc8cb;
+    background-color: #f8f9df;
+}
+.card-header{
+    font-weight: bold;
+    text-align: center;
+    color:#bdc8cb;
+    background-color: #faf8ff;
+}
+#form-group-header{
+    text-align: left;
+    background-color: #f8f9df;
 }
